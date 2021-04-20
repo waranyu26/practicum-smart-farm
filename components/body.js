@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Card from './card'
 import CardAlarm from './card-alarm'
-import axios from 'axios';
 import { fetchData } from '../lib/api'
 
 const useInterval = (callback, delay) => {
@@ -31,6 +30,7 @@ const Body = ({ children }) => {
 
   useInterval(async () => {
     const res = await fetchData();
+    console.log(res)
     setData(res)
     setTimeout(() => {
     }, 500);

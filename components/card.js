@@ -11,7 +11,7 @@ const Card = ({ title, level, unit, goodInterval, outerRange }) => {
       <div className="bg-white p-10 rounded-lg shadow-lg mb-10 h-full relative text-center overflow-hidden">
         <h1 className="text-4xl font-bold">{title}</h1>
         <div className="mt-4 mb-10">
-          <p className="text-gray-600 text-lg mb-10">The {title.toLowerCase()} level is about {level} {unit}</p>
+          <p className="text-gray-600 text-lg mb-10">The {title.toLowerCase()} level is about {level}{unit}</p>
           {statusId != 0 ?
             <Progress type="circle" format={percent => `${percent}${unit}`} strokeColor={{
               '0%': '#108ee9',

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Progress } from 'antd';
 import 'antd/dist/antd.css';
 import { toggleAlarm } from '../lib/api'
 
-const CardAlarm = ({ isOn }) => {
+const CardAlarm = () => {
+  const [isOn, setIsOn] = useState(false)
+  const handleClick = (id) => {
+    toggleAlarm(id);
+    setIsOn(id === 1)
+  }
+
   return (
     <div className="p-4 w-full mb-20">
       <div className="bg-white p-10 rounded-lg shadow-lg mb-10 h-full relative text-center overflow-hidden">
@@ -18,10 +24,13 @@ const CardAlarm = ({ isOn }) => {
         </div>
         <h2 className="text-md uppercase"></h2>
         <div className="flex flex-col">
-          <button className="relative text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 text-lg lg:w-1/2 mx-auto mb-4 rounded"
-            onClick={() => toggleAlarm(1)}>Toggle Alarm ON</button>
-          <button className="relative text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 text-lg lg:w-1/2 mx-auto mb-4 rounded"
-            onClick={() => toggleAlarm(0)}>Toggle Alarm OFF</button>
+          {
+            isOn ?
+              <button className="relative text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 text-lg lg:w-1/2 mx-auto mb-4 rounded"
+                onClick={() => handleClick(0)}>Toggle Alarm OFF</button> :
+              <button className="relative text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 text-lg lg:w-1/2 mx-auto mb-4 rounded"
+                onClick={() => handleClick(1)}>Toggle Alarm ON</button>
+          }
         </div>
       </div>
     </div>
