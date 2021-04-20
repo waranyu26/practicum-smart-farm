@@ -4,6 +4,7 @@ import { toggleAlarm } from '../lib/api'
 import { Tooltip, Button, notification } from 'antd';
 import 'antd/dist/antd.css';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons'
+import { configConsumerProps } from 'antd/lib/config-provider';
 
 const openNotification = (isCompleted, status) => {
   const args = {
@@ -24,9 +25,13 @@ const CardAlarm = ({ alarm, setAlarm }) => {
 
   const [alarmId, setAlarmId] = useState(alarm)
 
-  const handleClick = (id) => {
-    toggleAlarm(id);
-    setAlarm(id);
+  const handleClick = async (id) => {
+    const response = await toggleAlarm(id);
+    if (response !== -1)
+      setAlarm(id);
+
+    const status = alarmId === 1 ? 'OFF' : 'ON'
+    openNotification(response !== -1, status)
   }
 
   useEffect(() => {
