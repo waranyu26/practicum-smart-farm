@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Progress } from 'antd';
 import 'antd/dist/antd.css';
 import { toggleAlarm } from '../lib/api'
+import { Button, Tooltip } from 'antd';
 
 const CardAlarm = () => {
   const [isOn, setIsOn] = useState(false)

@@ -26,14 +26,16 @@ const useInterval = (callback, delay) => {
 
 const Body = ({ children }) => {
   const [data, setData] = useState([0, 0])
-  const [interval, setTimeInterval] = useState([[20, 30], [36, 70]])
+  const [interval, setTimeInterval] = useState([[0, 100], [0, 100]])
   const [intervalTime, setIntervalTime] = useState(2000);
 
   useInterval(async () => {
     const resData = await fetchData();
     const resInterval = await fetchInterval();
-    setData(resData);
-    setTimeInterval(resInterval);
+    if (resData.toString() !== data.toString())
+      setData(resData);
+    if (resInterval.toString() !== interval.toString())
+      setTimeInterval(resInterval);
     setTimeout(() => {
     }, 500);
   }, intervalTime);
