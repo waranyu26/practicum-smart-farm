@@ -19,9 +19,9 @@ const CardAlarm = ({ isOn }) => {
         <h2 className="text-md uppercase"></h2>
         <div className="flex flex-col">
           <button className="relative text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 text-lg lg:w-1/2 mx-auto mb-4 rounded"
-            onClick={() => toggleAlarm(0)}>Toggle Alarm ON</button>
+            onClick={() => toggleAlarm(1)}>Toggle Alarm ON</button>
           <button className="relative text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 text-lg lg:w-1/2 mx-auto mb-4 rounded"
-            onClick={() => toggleAlarm(1)}>Toggle Alarm OFF</button>
+            onClick={() => toggleAlarm(0)}>Toggle Alarm OFF</button>
         </div>
       </div>
     </div>
