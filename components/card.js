@@ -10,10 +10,12 @@ const Card = ({ title, level, statusId }) => {
         <h1 className="text-4xl font-bold">{title}</h1>
         <div className="mt-4 mb-10">
           <p className="text-gray-600 text-lg mb-10">The {title.toLowerCase()} level is about {level}</p>
-          <Progress type="circle" strokeColor={{
-            '0%': '#108ee9',
-            '100%': '#87d068',
-          }} percent={level} width={200} showInfo={true} />
+          {statusId != 0 ?
+            <Progress type="circle" strokeColor={{
+              '0%': '#108ee9',
+              '100%': '#87d068',
+            }} percent={level} width={200} /> :
+            <Progress type="circle" percent={100} width={200} status="exception" />}
         </div>
         <h2 className="text-md uppercase">Current status:</h2>
         <h3 className="tracking-wide text-2xl">
