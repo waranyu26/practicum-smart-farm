@@ -3,9 +3,8 @@ import { SHORT_STATUS, STATUS_DETAIL } from '../lib/constants';
 import 'antd/dist/antd.css';
 import { Progress } from 'antd';
 import { formatStatusIndex } from "../lib/statusFormat";
-import { setTempInterval, setTimeInterval } from "../lib/api";
+import { setTimeInterval } from "../lib/api";
 import { Slider, Tooltip, Button, notification } from 'antd';
-import { Interaction } from 'chart.js';
 
 const openNotification = (title, interval, isCompleted) => {
   const args = {
