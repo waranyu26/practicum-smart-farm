@@ -23,7 +23,6 @@ const useInterval = (callback, delay) => {
   }, [delay]);
 }
 
-
 const Body = ({ children }) => {
   const [data, setData] = useState([0, 0])
   const [interval, setTimeInterval] = useState([[0, 100], [0, 100]])
