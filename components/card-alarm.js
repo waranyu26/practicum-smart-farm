@@ -1,6 +1,7 @@
 import React from 'react';
 import { Progress } from 'antd';
 import 'antd/dist/antd.css';
+import { toggleAlarm } from '../lib/api'
 
 const CardAlarm = ({ isOn }) => {
   return (
@@ -17,8 +18,10 @@ const CardAlarm = ({ isOn }) => {
         </div>
         <h2 className="text-md uppercase"></h2>
         <div className="flex flex-col">
-          <button class="relative text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 text-lg lg:w-1/2 mx-auto mb-4 rounded">Toggle Alarm ON</button>
-          <button class="relative text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 text-lg lg:w-1/2 mx-auto mb-4 rounded">Toggle Alarm OFF</button>
+          <button className="relative text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 text-lg lg:w-1/2 mx-auto mb-4 rounded"
+            onClick={() => toggleAlarm(0)}>Toggle Alarm ON</button>
+          <button className="relative text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 text-lg lg:w-1/2 mx-auto mb-4 rounded"
+            onClick={() => toggleAlarm(1)}>Toggle Alarm OFF</button>
         </div>
       </div>
     </div>

@@ -5,10 +5,10 @@ const Chart = () => {
     <Line
       data={{
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [ 
+        datasets: [
           {
             label: '# of votes',
-            data: [12,19,20,22,52,87]
+            data: [12, 19, 20, 22, 52, 87]
           },
         ]
       }}

@@ -2,16 +2,18 @@ import React from 'react';
 import { SHORT_STATUS, STATUS_DETAIL } from '../lib/constants';
 import 'antd/dist/antd.css';
 import { Progress } from 'antd';
+import { formatStatusIndex } from "../lib/statusFormat";
 
-const Card = ({ title, level, statusId }) => {
+const Card = ({ title, level, unit, goodInterval, outerRange }) => {
+  const statusId = formatStatusIndex(level, goodInterval, outerRange)
   return (
     <div className="p-4 lg:w-1/2 w-full">
       <div className="bg-white p-10 rounded-lg shadow-lg mb-10 h-full relative text-center overflow-hidden">
         <h1 className="text-4xl font-bold">{title}</h1>
         <div className="mt-4 mb-10">
-          <p className="text-gray-600 text-lg mb-10">The {title.toLowerCase()} level is about {level}</p>
+          <p className="text-gray-600 text-lg mb-10">The {title.toLowerCase()} level is about {level} {unit}</p>
           {statusId != 0 ?
-            <Progress type="circle" strokeColor={{
+            <Progress type="circle" format={percent => `${percent}${unit}`} strokeColor={{
               '0%': '#108ee9',
               '100%': '#87d068',
             }} percent={level} width={200} /> :
