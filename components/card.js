@@ -4,8 +4,8 @@ import 'antd/dist/antd.css';
 import { Progress } from 'antd';
 import { formatStatusIndex } from "../lib/statusFormat";
 
-const Card = ({ title, level, unit, goodInterval, outerRange }) => {
-  const statusId = formatStatusIndex(level, goodInterval, outerRange)
+const Card = ({ title, level, unit, goodInterval }) => {
+  const statusId = formatStatusIndex(level, goodInterval)
   return (
     <div className="p-4 lg:w-1/2 w-full">
       <div className="bg-white p-10 rounded-lg shadow-lg mb-10 h-full relative text-center overflow-hidden">
